@@ -77,7 +77,7 @@ void printlist(Node* node)
     cout<<"NULL";
 
 }
-void delete_kth_position(Node** head,int position)
+void delete_by_passing_key(Node** head,int key)
 {
     Node* prev=NULL;
     Node* temp=*head;
@@ -119,15 +119,15 @@ int main()
 
     insert_new_node_at_the_beginning(&head,7);
    insert_new_node_at_the_beginning(&head,1);
-///insert_new_node_at_the_beginning(&head,6);
-///insert_new_node_at_the_beginning(&head,4);
-///insert_new_node_at_the_beginning(&head,8);
+insert_new_node_at_the_beginning(&head,6);
+insert_new_node_at_the_beginning(&head,4);
+insert_new_node_at_the_beginning(&head,8);
   append_last(&head,4);
    insert_after(head->next,8);
    ///insert_after(head->next->next->next,6);
    printlist(head);
 
-   delete_kth_position(&head,6);
+   delete_by_passing_key(&head,6);
    cout<<"\nDeleting the node The linked list will we \n";
 
    printlist(head);
