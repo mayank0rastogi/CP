@@ -1,0 +1,248 @@
+//Implementing stack using singly linked std::list
+#include<bits/stdc++.h>
+using namespace std;
+ class Node
+ {
+     public:
+     int key;
+     int data;
+     Node* next;
+     
+     Node()
+     {
+         key=0;
+         data=0;
+         next=NULL;
+     }
+     
+     Node(int k,int d)
+     {
+         key=k;
+         data=d;
+     }
+ };
+ 
+ class stack_with_linkedlist
+ {
+     public:
+     Node* top;
+     
+     stack_with_linkedlist()
+     {
+         top=NULL;
+     }
+     
+     
+     bool isEmpty()
+     {
+         if(top==NULL)
+         {
+             return true;
+         }
+         else
+         {
+             return false;
+         }
+     }
+     bool nodeexistornot(Node* n)
+     {
+         _Bool exist=false;//or use simply bool
+         Node* temp=top;
+         while(temp!=NULL)
+         {
+            
+            if(temp->key==n->key)
+            
+            {
+               exist=true;
+               break;
+            }
+        temp=temp->next;
+         }
+         return exist;
+         
+     }
+     
+     void push(Node* n)
+     {
+          bool ptr=nodeexistornot(n);
+         if(top==NULL)
+         {
+             top=n;
+             cout<<"No Node exist push elements with new key and value in stack"<<endl;
+         
+             
+         }
+         else
+         {
+             if(ptr)
+             {
+                 cout<<"Same Key not allowed\n enter the new key and his value pair "<<endl;
+                
+             }
+             else
+             {
+                    Node* temp=top;
+                     top=n;//now top pointer pointe to new node
+                    n->next=temp;//basically it stores the address of new node next pointer to the address of
+                 //its bootom node address node
+                 cout<<"Node pushed"<<endl;
+             }
+         }
+         
+         
+     }
+     
+   Node* popNode()
+   {
+       Node* temp=NULL;
+       if(isEmpty())
+       {
+
+           cout<<"Stack underflow"<<endl;
+           return temp;
+       }
+else{
+    temp=top;
+    top=top->next;//top will now point n3
+}
+return temp;
+       }
+  
+  
+  Node* peek()
+  {
+      //peek tells top of the stack
+      //Node* temp=NULL;use it also
+      if(isEmpty())
+      {
+          cout<<"stack Underflow"<<endl;
+          //return temp;
+          return NULL;
+      }
+      else
+      {
+          return top;
+      }
+  }
+  
+  
+  int count()
+  {
+      int no=0;
+      Node* temp=top;
+      if(isEmpty())
+      {
+          cout<<"stack does'nt hace any elemnt inside in it "<<"\n Kindly insert it to count the no of elemnts"<<endl;
+         return 0; 
+      }
+      else
+      {
+          while(temp!=NULL)
+          {
+              no++;
+              temp=temp->next;
+          }
+      }
+      return no;
+  }
+  
+  void display()
+  {
+      Node* temp=top;
+      while(temp!=NULL)
+      {
+          cout<<"("<<temp->key<<"-"<<temp->data<<") <-->"<<endl;
+          temp=temp->next;
+          //to keep forwarding the pointer 
+      }
+      cout<<"total no of nodes in stack :"<<count()<<endl;
+      cout<<endl;
+  }
+     
+ };
+ 
+ int main()
+ {
+     
+    stack_with_linkedlist s1;
+    int option,key,data;
+    do
+    {
+     cout<<"Enter the option which operation you want to perform"<<endl;
+     cout<<"1.push():"<<endl;
+     cout<<"2.popNode():"<<endl;
+     cout<<"3.isEmpty():"<<endl;
+     cout<<"4.peek():"<<endl;
+     cout<<"5.count():"<<endl;
+     cout<<"6.Display():"<<endl;
+     Node* new_node=new Node();
+     //Node n1=new Node();//this is temporary method beacuse after executing while over and over and over 
+     //again the each time memory remove not permanent as in above case memeory in heap remains there
+     
+     cin>>option;
+     switch(option)
+     {
+         case 0:
+             break;
+         case 1:
+             cout<<"Enter the KEY and VALUE to  push in the stack"<<endl;
+             cin>>key;
+             cin>>data;
+             new_node->key=key;
+             new_node->data=data;
+             s1.push(new_node);
+             break;
+         case 2:
+             cout<<"Popped Element in the stack is:";new_node=s1.popNode();cout<<endl;
+             cout<<"Top of the stack is:("<<new_node->key<<"-"<<new_node->data<<")";
+             cout<<endl;
+             delete new_node;
+             break;
+          case 3:
+             if(s1.isEmpty())
+             {
+                 cout<<"Stack is Empty"<<endl;
+             }
+             else
+             {
+                 cout<<"Stack is not Empty"<<endl;
+             }
+             break;
+             case 4:
+             if(s1.isEmpty())
+             {
+                 cout<<"Stack is empty"<<endl;
+             }
+             else
+             {
+                 cout<<"Peek function  is called"<<endl;
+                 
+                 new_node=s1.peek();
+                 cout<<"Top of the stack is:("<<new_node->key<<"-"<<new_node->data<<")";
+                 cout<<endl;
+             }
+             break;
+             case 5:
+             cout<<"Count Function is called"<<endl;
+             cout<<"No of Nodes in the stack is ::"<<s1.count()<<endl;
+             break;
+             
+             case 6:
+             cout<<"Display the  stack"<<endl;
+             s1.display();
+             break;
+             
+             default:
+             cout<<"Enter the Proper Option No to get Result"<<endl;
+             
+             
+         
+     }
+    }
+    while(option!=0);
+    
+    return 0;
+
+ }
+
