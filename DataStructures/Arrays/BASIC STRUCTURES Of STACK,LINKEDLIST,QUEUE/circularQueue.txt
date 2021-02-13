@@ -1,0 +1,188 @@
+#include<bits/stdc++.h>
+using namespace std;
+class CircularQueue
+{
+    private:
+        int a[5];
+        int front;
+        int rear;
+        int itemcount;
+        
+    public:
+    CircularQueue()
+    {
+        itemcount=0;
+        front=-1;
+        rear=-1;
+        for(int i=0;i<5;i++)
+        {
+            a[i]=0;
+        }
+    }
+    
+    
+    
+    _Bool isEmpty()
+    {
+        if(front==-1 && rear==-1)
+        {
+            return true;
+            cout<<"The queue is empty"<<endl;
+            
+        }
+        else
+        {
+            return false;
+            cout<<"The queue is not empty"<<endl;
+        }
+    }
+    
+    _Bool isFull()
+    {
+        if((rear+1)%5==front)
+        {
+            return true;
+            cout<<"queue is completed full"<<endl;
+        }
+        else
+        {
+            return false;
+            cout<<"the queue is still empty ,,Do you want to insert more elements inside in it"<<endl;
+        }
+    }
+    
+    void enqueue(int val)
+    {
+        if(isFull())
+        {
+            
+            cout<<"OOps!! queue is full you can't insert a new Node in it"<<endl;
+            return;
+        }
+        else if(isEmpty())
+        {
+            rear=front=0;
+            //cout<<"yup!! queue is empty -> if you wish yo insert a new node then insert a new node:"<<endl;
+            a[rear]=val;
+        }
+        else
+        {
+            rear=(rear+1)%5;
+        
+           a[rear]=val;
+        }
+        itemcount++;
+    }
+    
+    int dequeue()
+    {
+        int x=0;
+        if(isEmpty())
+        {
+            return 0 ;
+        }
+        else if(front == rear)
+        {
+            //this condition be true if when only when there is one node/single value  is inserted is in the queue
+            x=a[front];
+            a[front]=0;
+            front=rear=-1;//bcoz hwne -1 is condition empty queue;
+            itemcount--;
+            return x;
+        }
+        else
+        {
+            x=a[front];
+            a[front]=0;
+            front=(front+1)%5;
+            itemcount--;
+            return x;
+        }
+        
+    }
+    
+    int count()
+    {
+       return (itemcount);//suppose if we have 3 values in queue than rear has 
+       //pointing to 3 index and front is always in 0 so 3-0+1 gives us a correct result
+    }
+    
+    void display()
+    {
+        cout<<"display the values of queue"<<endl;
+        for(int i=0;i<5;i++)
+        {
+            cout<<a[i]<<" "<<endl;
+        }
+    }
+    
+};
+
+int main()
+{
+    CircularQueue q1;
+  int option,value;
+    do
+    {
+    cout<<"\n<<__--ENTER THE PROGRAM OF CIRCULAR QUEUE!!!--__>>\n";
+     cout<<"\nEnter the option which operation you want to perform"<<endl;
+     cout<<"0: enter 0 to exit from the program"<<endl;
+     cout<<"1.enqueue():"<<endl;
+     cout<<"2.dequeue():"<<endl;
+     cout<<"3.isEmpty():"<<endl;
+     cout<<"4.isFull():"<<endl;
+     cout<<"5.count():"<<endl;
+     cout<<"6.Display():"<<endl;
+     
+     
+     cin>>option;
+     switch(option)
+     {
+         case 0:
+         break;
+         case 1:
+             cout<<"Enter the element to enqueue in the queue"<<endl;
+             cin>>value;
+             q1.enqueue(value);
+             break;
+         case 2:
+             cout<<"Dequeue operation is perform:\n dequeued value is ->"<<q1.dequeue()<<endl;
+             break;
+          case 3:
+             if(q1.isEmpty())
+             {
+                 cout<<"Queue is Empty"<<endl;
+             }
+             else
+             {
+                 cout<<"Queue is not Empty"<<endl;
+             }
+             break;
+             case 4:
+             if(q1.isFull())
+             {
+                 cout<<"Queue is Full"<<endl;
+             }
+             else
+             {
+                 cout<<"Queue is not Full"<<endl;
+             }
+             break;
+             case 5:
+             cout<<"count the no of items in queue:"<<q1.count()<<endl;
+             break;
+             case 6:
+             cout<<"Displaying the Items inside the  stack"<<endl;
+             q1.display();
+             break;
+             default:
+             cout<<"Enter the Proper Option No to get Result"<<endl;
+             
+             
+         
+     }
+    }
+    while(option!=0);
+    
+    return 0;
+}
