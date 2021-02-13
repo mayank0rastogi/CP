@@ -1,0 +1,347 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+using namespace std;
+
+class Node
+{
+    public:
+    int key;
+    int data;
+    Node *next;
+    
+    Node()
+    {
+        key=0;
+        data=0;
+        next=NULL;
+    }
+    
+    Node(int k,int d)
+    {
+        key=k;
+        data=d;
+    }
+};
+class circularlinkedlist
+{
+    public:
+    Node* head;
+    
+
+singlylinkedlist()
+{
+    head=NULL;
+}
+singlylinkedlist(Node *n)//takes node addreass as an argument
+{
+    head=n;//pointer  points to newly pass nodes
+}
+
+//checking if node exits or not
+Node* nodeexistornot(int k)
+{
+    //traversal of linked singlylinkedlist
+    Node* temp=NULL;
+    Node* ptr=head;//now ptr pointer has an adddress of head pointer that has so ptr pointer also 
+    //points the same adddress this basically for traversing
+    
+if(ptr==NULL)
+{
+    return temp;
+}
+else
+{
+    
+    do
+    {
+        if(ptr->key==k)
+        {
+            temp=ptr;
+        }
+        ptr=ptr->next;
+    }while(ptr!=head);
+    return temp;
+}
+
+}
+
+//appending the nodes int the list
+   //here we use the mechanism of pass by address so value is passd is permanent
+   void appendnode(Node* n)//pass by address
+   {
+       if(nodeexistornot(n->key)!=NULL)
+       {
+           cout<<"node already exists with key value "<<n->key<<"append another nnode with differnet key value"<<endl;
+       
+       else{
+           if(head==NULL)
+           {
+               head=n;//newly node appended
+               n->next=head;//pointing yourself
+           }
+           else
+           {
+               Node* ptr=head;
+               while(ptr->next!=head)
+               {
+                   ptr=ptr->next;
+                   
+               }
+               ptr->next=n;//newly node address pass to last node of singly linked list after iterating thouhgit
+               n->next=head;
+               cout<<"the new Node Appended"<<endl;
+           }
+       }
+   }
+   
+   //prepend Node---attcah a node at start
+   
+   void prependnode(Node *n)
+   {
+        if(nodeexistornot(n->key)!=NULL)
+       {
+           cout<<"node already exists with key value "<<n->key<<"append another nnode with differnet key value"<<endl;
+       }
+       else
+       {
+           if(head==NULL)
+           {
+               head=n;
+               n->next=head;
+               cout<<"Node prepended at the first head position"<<endl;
+           }
+           else
+           {
+           Node* ptr=head;
+           while(ptr->next!=head)
+           {
+               ptr=ptr->next;
+           }
+           
+           ptr->next=n;
+           n->next=head;
+           head=n;
+            cout<<"Code prpended at the beginning"<<endl;
+       }
+           
+       }
+   }
+   
+   // insert the node at prticular node in the list
+   void insertnodeafter(int k,Node* n)
+   {
+        Node* ptr nodeexistornot(k);
+        if(ptr==NULL)
+        {
+            cout<<"No node exist with key value"<<endl;
+        }
+        else
+        {
+            if(nodeexistornot(n->key)!=NULL)
+            {
+                cout<<"Node already exist with key value:"<<n->key<<" . Append another nofd with different key valuue"<<endl;
+            }
+            else
+            {
+                if(ptr->next==head)//this means we are at the end
+                {
+                    n->next=ptr->next;
+                    ptr->next=n;
+                    cout<<"Node inserted at the end"<<endl;
+                }
+                else
+                {
+                    n->next=ptr->next;
+                    ptr->next=n;
+                    cout<<"Node inserted at between"<<endl;
+                }
+            }
+        }
+   }
+   
+   //deleting the node by unique key
+   void deletethenode(int k)
+   {
+       Node* ptr=nodeexistornot(k)
+       if(ptr==NULL)
+       {
+           cout<<"Node exist with key value"<<k<<endl;
+       }
+       else
+       {
+           
+           if(ptr==head)
+           {
+               if(head->next==head)
+               {
+                   head=NULL;//node unlinked
+                   cout<<"head Mode unlinked...List is empty Now ";
+               }
+               //for  node delete at the end
+               else
+               {
+                  Node* ptr1=head;
+                  while(ptr1->next!=head)
+                  {
+                      ptr1=ptr1->next;
+                  }
+                   ptr1->next=head->next;//this basically says that
+                   //if we have 3 nodes 1 2 3
+                   //3->next =1->next(second node adress)
+                   
+                   head=head->next;
+                   cout<<"node unllinked with keys value:"<<endl;
+               }
+           }
+                
+                   else
+                   {
+                       Node* temp=NULL;
+                       Node* prevptr=head;
+                       Node* currentptr=head->next;
+                       
+                       while(currentptr!=NULL)
+                       {
+                           if(currentptr->key==k)
+                           {
+                               temp=currentptr;
+                               currentptr=NULL;
+                           }
+                           else
+                           {
+                               prevptr=prevptr->next;
+                               currentptr=currentptr->next;
+                           }
+                       }
+                       prevptr->next=temp->next;//making circular connection
+                       // n2->next=n3->next(i.e address of n1)
+                       //case2:n1->next=temp->next(i.e adress of n3)
+                       cout<<"Node Unlinked with key value:"<<k<<endl;
+                       
+                   }
+                   
+                   
+               }
+   }
+   
+   //updating the data value of the Node
+   void updatenode(int k,int d)
+   {
+       Node *ptr=nodeexistornot(k);
+       if(ptr!=NULL)
+       {
+           ptr->data=d;
+           cout<<"Node Data updated"<<endl;
+       }
+       else
+       {
+           cout<<"Node does'nt exists with key value"<<k<<endl;
+       }
+   }
+   //displaying the linked list
+   void display()
+   {
+       if(head==NULL)
+       {
+           cout<<"no nodes in linked list inser t some nodes"<<endl;
+           
+       }
+       else
+       {
+           cout<<endl<<"head adress:"<<head<<endl;
+           cout<<endl<<"circular linked list values:";
+           Node* temp=head;
+           
+           do(temp!=NULL)
+           {
+              cout<<"("<<temp->key<<","<<temp->data<<","<<temp->next<<")  --->";
+              temp=temp->next;
+           }while(temp!=head);
+       }
+   }
+   
+}; 
+int main()
+{
+    circularlinkedlist d;//creation of the object of class
+     int option;//to create menu driven program for the user
+     int key1,k1,data1;
+     do{
+         cout<<"\n what operation you want ro perfrom ?"<< "\nSelect Option No.for which you want to perform"<<endl;
+         cout<<"0. for exit in the program"<<endl;
+         cout<<"1. appendnode()"<<endl;
+         cout<<"2. prependnode()"<<endl;
+         cout<<"3. insertnode()"<<endl;
+         cout<<"4. deletethenode()"<<endl;
+         cout<<"5. updatenode()"<<endl;
+         cout<<"6. display()"<<endl;
+          
+          cin>>option;
+          Node* n1=new Node();//n1 is the pointer to object created in heap memory
+          //another method Node n1;//when inserting first node when switch case 
+          //executes over and over again the n1 is recreated beacuse it is stored
+          //in stack memory
+          switch(option)
+          {
+              case 0:
+              break;
+              case 1:
+              cout<<"Append Node Operation "<<"\n Enter the key and data of the node to be inserted"<<endl;
+              cin>>key1;
+              cin>>data1;
+              n1->key=key1;
+              n1->data=data1;
+              s.appendnode(n1);//when Node n1 the s.appendnode<<(&n)
+              break;
+              
+              case 2:
+              cout<<"prependnode Node Operation "<<"\n Enter the key and data of the node to be inserted"<<endl;
+              cin>>key1;
+              cin>>data1;
+              n1->key=key1;
+              n1->data=data1;
+              s.prependnode(n1);//when Node n1 the s.appendnode<<(&n)
+              break;
+              case 3:
+              cout<<"insert Node after  Operation "<<"\n Enter the key of existing the node after you want you want ot be inserted"<<endl;
+              cin>>k1;
+              cout<<"Enter the key and data of the  new node:" <<endl;
+              cin>>key1;
+              cin>>data1;
+              n1->key=key1;
+              n1->data=data1;
+              s.insertnode(k1,n1);//when Node n1 the s.appendnode<<(&n)
+              break;
+              
+              case 4:
+              cout<<"delete Node  by key Operation "<<"\n Enter the key of the node to be deleted"<<endl;
+              cin>>k1;
+              s.deletethenode(k1);//when Node n1 the s.appendnode<<(&n)
+              break;
+              
+              case 5:
+              cout<<"updatenode Node Operation "<<"\n Enter the key and new data  to be updated"<<endl;
+              cin>>key1;
+              cin>>data1;
+              s.updatenode(key1,data1);//when Node n1 the s.appendnode<<(&n)
+              break;
+              case 6:
+              s.display();
+              break;
+              default:
+              cout<<"Enter the option Number"<<endl;
+              
+          }
+     }
+     while(option!=0);
+
+
+    return 0;
+}
