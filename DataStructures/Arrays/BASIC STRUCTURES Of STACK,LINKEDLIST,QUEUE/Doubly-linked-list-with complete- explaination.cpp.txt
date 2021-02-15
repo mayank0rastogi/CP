@@ -1,0 +1,307 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node
+{
+    public:
+    int key;
+    int data;
+    
+    Node* next;
+    Node* previous;
+    Node()
+    {
+        key=0;
+        data=0;
+        
+        next=NULL;
+        previous=NULL;
+    }
+    Node(int k,int d)
+    {
+        key=k;
+        data=d;
+        
+    }
+};
+
+class DoublyLinkedlist
+{
+    public:
+    Node* head;
+    DoublyLinkedlist()
+    {
+        head=NULL;
+    }
+    DoublyLinkedlist(Node* n)
+    {
+        head=n;
+        
+    }
+    
+    Node* checkifNodeExits(int k)
+    {
+        Node* temp=NULL;
+        Node* ptr=head;
+        
+        while(ptr!=NULL)
+        {
+            if(ptr->key==k)
+            {
+                temp=ptr;
+                
+            }
+            ptr=ptr->next;
+        }
+        return temp;
+        
+    }
+    
+    void appendnode(Node* n)
+    {
+        if(checkifNodeExits(n->key)!=NULL)
+        {
+            cout<<"Node Already exits with key value"<<n->key<<"please enter the new node that does not exits";
+        }
+        
+        else
+        {
+            if(head==NULL)
+            {
+                head=n;
+                cout<<"node appended as the head node\n";
+            }
+            
+      
+        
+        else
+        {
+            Node* ptr=head;
+            while(ptr->next!=NULL)
+            {
+                ptr=ptr->next;
+            }
+            
+            ptr->next=n;
+            n->previous=ptr;
+            cout<<"Node appended\n";
+        }
+        }
+    }
+    
+void prependnode(Node *n)
+   {
+        if(checkifNodeExits(n->key)!=NULL)
+       {
+           cout<<"node already exists with key value "<<n->key<<"append another nnode with differnet key value"<<endl;
+       }
+       else
+       {
+           if(head==NULL)
+           {
+               head=n;
+               cout<<"Node appended as head node\n";
+           }
+       
+       else
+       {
+           head->previous=n;
+           n->next=head;
+           
+           head=n;
+           cout<<"Node appended\n";
+       } 
+       }
+   }
+   
+   // insert the node at prticular node in the list
+   void insertnodeafter(int k,Node* n)
+   {
+        Node* ptr= checkifNodeExits(k);
+        if(ptr==NULL)
+        {
+            cout<<"No node exist with key value"<<k<<endl;
+        }
+        else
+        {
+            if(checkifNodeExits(n->key)!=NULL)
+            {
+                cout<<"Node already exist with key value:"<<n->key<<" . Append another nofd with different key valuue"<<endl;
+            }
+            else
+            {  Node * nextNode = ptr -> next;
+                // inserting at the end
+                if (nextNode == NULL) {
+                  ptr -> next = n;
+                  n -> previous = ptr;
+                  cout << "Node Inserted at the END" << endl;
+                }
+         
+                //inserting in between
+                else {
+                  n -> next = nextNode;
+                  nextNode -> previous = n;
+                  n -> previous = ptr;
+                  ptr -> next = n;
+         
+                  cout << "Node Inserted in Between" << endl;
+                }
+            }
+        }
+   }
+   
+   /// 5. Delete node by unique key. Basically De-Link not delete
+  void deleteNodeByKey(int k) {
+    Node * ptr = checkifNodeExits(k);
+    if (ptr == NULL) {
+      cout << "No node exists with key value: " << k << endl;
+    } else {
+ 
+      if (head -> key == k) {
+        head = head -> next;
+        cout << "Node UNLINKED with keys value : " << k << endl;
+      } else {
+        Node * nextNode = ptr -> next;
+        Node * prevNode = ptr -> previous;
+        // deleting at the end
+        if (nextNode == NULL) {
+ 
+          prevNode -> next = NULL;
+          cout << "Node Deleted at the END" << endl;
+        }
+ 
+        //deleting in between
+        else {
+          prevNode -> next = nextNode;
+          nextNode -> previous = prevNode;
+          cout << "Node Deleted in Between" << endl;
+ 
+        }
+      }
+    }
+  }
+   
+   //updating the data value of the Node
+   void updatenode(int k,int d)
+   {
+       Node *ptr=checkifNodeExits(k);
+       if(ptr!=NULL)
+       {
+           ptr->data=d;
+           cout<<"Node Data updated"<<endl;
+       }
+       else
+       {
+           cout<<"Node does'nt exists with key value"<<k<<endl;
+       }
+   }
+   //displaying the linked list
+   void display()
+   {
+       if(head==NULL)
+       {
+           cout<<"no nodes in linked list insert some nodes"<<endl;
+           
+       }
+       else
+       {
+           ///cout<<endl<<"head adress:"<<head<<endl;
+           cout<<endl<<"DoublyLinkedlist values:";
+           Node* temp=head;
+           
+           while(temp!=NULL)
+           {
+              cout << "(" << temp -> key << "," << temp -> data << ") <--> ";
+              temp=temp->next;
+           }
+       }
+   }
+   
+}; 
+int main()
+{
+    DoublyLinkedlist dl;//creation of the object of class
+     int option;//to create menu driven program for the user
+     int key1,k1,data1;
+     do{
+         cout<<"\n what operation you want ro perfrom ?"<< "\nSelect Option No.for which you want to perform"<<endl;
+         cout<<"0. for exit in the program"<<endl;
+         cout<<"1. appendnode()"<<endl;
+         cout<<"2. prependnode()"<<endl;
+         cout<<"3. insertnode()"<<endl;
+         cout<<"4. deletethenode()"<<endl;
+         cout<<"5. updatenode()"<<endl;
+         cout<<"6. display()"<<endl;
+          
+          cin>>option;
+          Node* n1=new Node();//n1 is the pointer to object created in heap memory
+          //another method Node n1;//when inserting first node when switch case 
+          //executes over and over again the n1 is recreated beacuse it is stored
+          //in stack memory
+          switch(option)
+          {
+              case 0:
+              break;
+              case 1:
+              cout<<"Append Node Operation "<<"\n Enter the key and data of the node to be inserted"<<endl;
+              cin>>key1;
+              cin>>data1;
+              n1->key=key1;
+              n1->data=data1;
+              dl.appendnode(n1);//when Node n1 the s.appendnode<<(&n)
+              break;
+              
+              case 2:
+              cout<<"prependnode Node Operation "<<"\n Enter the key and data of the node to be inserted"<<endl;
+              cin>>key1;
+              cin>>data1;
+              n1->key=key1;
+              n1->data=data1;
+              dl.prependnode(n1);//when Node n1 the s.appendnode<<(&n)
+              break;
+              case 3:
+              cout<<"insert Node after  Operation "<<"\n Enter the key of existing the node after you want you want ot be inserted"<<endl;
+              cin>>k1;
+              cout<<"Enter the key and data of the  new node:" <<endl;
+              cin>>key1;
+              cin>>data1;
+              n1->key=key1;
+              n1->data=data1;
+              dl.insertnodeafter(k1,n1);//when Node n1 the s.appendnode<<(&n)
+              break;
+              
+              case 4:
+              cout<<"delete Node  by key Operation "<<"\n Enter the key of the node to be deleted"<<endl;
+              cin>>k1;
+              dl.deleteNodeByKey(k1);//when Node n1 the s.appendnode<<(&n)
+              break;
+              
+              case 5:
+              cout<<"updatenode Node Operation "<<"\n Enter the key and new data  to be updated"<<endl;
+              cin>>key1;
+              cin>>data1;
+              dl.updatenode(key1,data1);//when Node n1 the s.appendnode<<(&n)
+              break;
+              case 6:
+              dl.display();
+              break;
+              default:
+              cout<<"Enter the option Number"<<endl;
+              
+          }
+     }
+     while(option!=0);
+
+
+    return 0;
+}
+
