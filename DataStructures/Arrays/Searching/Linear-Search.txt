@@ -1,0 +1,65 @@
+/*
+Searching algorithm
+1->squenetial Search,Eg-Linear Search.
+2->interval Search(works on sorted data structures),Eg-Binary Search.
+
+*/
+
+///Linear Searching
+
+///Algorithm///
+/*
+1. Take input from user
+2. Take element you want to search from user.
+3. start traversing from 1st elememt in array to last
+4. if(any match found)
+
+        then print message
+        and break the programs here.
+    else
+         move to next element in array and comapre it to 
+5. END
+*/
+ 
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+
+void linear_search(int a[],int num,int n)
+{
+    int flag=-1;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]==num)
+        {
+            cout<<"Yupp !!element you are searching is founded successfully\n";
+            cout<<"at location : "<<i<<"\n";
+            flag=0;
+        }
+    }
+    if(flag==-1)
+    {
+        cout<<"OOP'S !! element you searched is not found"<<endl;
+    }
+}
+
+int main()
+{
+    cout<<"please enter the No of elemnt you want ot inert in an array"<<endl;
+    int n;
+    cin>>n;
+     int a[n];
+     cout<<"Please enter the element of array"<<endl;
+     for(int i=0;i<n;i++)
+     {
+         cin>>a[i];
+     }
+     
+     cout<<"Please eneter an element to search"<<endl;
+     int num;
+     cin>>num;
+     linear_search(a,num,n);
+    return 0;
+}
