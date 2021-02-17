@@ -1,0 +1,57 @@
+/******************************************************************************
+Selection Sort Algorithm
+>>It has an inplace comparison sort.
+>>it has O(n2) time complexity,when we take large inputs it is inefficent on large set of noexcept
+>>divides the list into two parts 
+*******************************************************************************/
+#include <bits/stdc++.h>
+using namespace std;
+
+
+void selectionSort(int a[])
+{
+ for(int i=0;i<4;i++)///outer loop
+ {
+     int min=i;
+     
+     for(int j=i+1;j<5;j++)///compare the no's with predecessor element that is i+1
+     {
+         if(a[j]<a[min])
+         {
+             min=j;///min values contains the lowest value
+         }
+     }
+     ///swap the elements
+     if(min!=i)
+     {
+         int temp=a[min];
+         a[min]=a[i];
+         a[i]=temp;
+     }
+ }
+}
+
+int main()
+{
+    int a[5];
+    cout<<"enter the integers is random order : "<<endl;
+    
+    for(int i=0;i<5;i++)
+    {
+        cin>>a[i]; 
+    }
+    cout<<"Unsorted Array:"<<endl;
+    for(int i=0;i<5;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+    selectionSort(a);
+    cout<<"Unsorted Array:"<<endl;
+    for(int i=0;i<5;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+    return 0;
+}
