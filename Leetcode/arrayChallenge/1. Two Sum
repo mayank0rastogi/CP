@@ -30,7 +30,8 @@ Only one valid answer exists.
 
 
 Solution:
-```
+
+
 class Solution(object):
     def twoSum(self, nums, target):
         """
@@ -49,4 +50,4 @@ class Solution(object):
             else:
                 #print(visit[n],i)
                 return [visit[n],i]
-                ```
+
