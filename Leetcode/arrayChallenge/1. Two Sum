@@ -30,7 +30,6 @@ Only one valid answer exists.
 
 
 Solution:
-
 ```
 class Solution(object):
     def twoSum(self, nums, target):
