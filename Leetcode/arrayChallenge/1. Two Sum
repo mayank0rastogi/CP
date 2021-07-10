@@ -51,3 +51,25 @@ class Solution(object):
                 #print(visit[n],i)
                 return [visit[n],i]
 
+
+C++ Solution:
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        
+        vector<int>twos;
+        unordered_map<int,int>ts;
+        for(int i=0;i<nums.size();i++)
+        {
+            if(ts.find(target-nums[i])!=ts.end())
+            {
+                twos.push_back(ts[target-nums[i]]);
+                twos.push_back(i);
+            }
+    
+                ts[nums[i]]=i;
+        }
+        return twos;
+    }
+};
