@@ -1,0 +1,28 @@
+C++ Solution using Stack and Normal Swappping That are Now Under Comments:
+
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        stack<char>st;
+        for(int i=0;i<s.size();i++)
+        {
+            st.push(s[i]);
+        }
+        int pt;
+        while(!(st.empty()))
+        {
+            s[pt]=st.top();
+            st.pop();
+            pt++;
+        }
+        
+        // int i =0,j=size(s)-1;
+        // while(i<j)
+        // {
+        //     swap(s[i],s[j]);
+        //     i++;
+        //     j--;
+        // }
+        
+    }
+};
