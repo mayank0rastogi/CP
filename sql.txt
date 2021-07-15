@@ -1,0 +1,51 @@
+CREATE TABLE public.churn_modelling
+(    
+    RowNumber INT,   
+    CustomerId INT,
+    Surname text,
+    CreditScore INT,
+	Geography text,
+	Gender text,
+	Age INT,
+	Tenure INT,
+	Balance numeric,
+	NumOfProducts INT,
+	HasCrCard INT,
+	IsActiveMember INT,
+	EstimatedSalary numeric,
+	Exited INT
+);
+
+SELECT * from public.churn_modelling;
+intro strength
+ 
+from gensim.corpora.wikicorpus import WikiCorpus
+from gensim.models.doc2vec import Doc2Vec, TaggedDocument
+from pprint import pprint
+import multiprocessing
+
+wiki = WikiCorpus("/data/enwiki-latest-pages-articles.xml.bz2")
+
+class TaggedWikiDocument(object):
+    def __init__(self, wiki):
+        self.wiki = wiki
+        self.wiki.metadata = True
+    def __iter__(self):
+        for content, (page_id, title) in self.wiki.get_texts():
+            yield TaggedDocument(content, [title])
+
+documents = TaggedWikiDocument(wiki)
+
+cores = multiprocessing.cpu_count()
+model = Doc2Vec(dm=1, dm_mean=1, size=200, window=8, min_count=10, iter =10, workers=cores)
+
+model.build_vocab(documents)
+model.train(documents, total_examples=model.corpus_count, epochs=model.iter)
+
+pprint(model.docvecs.most_similar(positive=["Machine learning"], topn=20))
+# Here I get a good results
+
+model.save("./doc2vecmodel.mod")
+model = Doc2Vec.load("./doc2vecmodel.mod")
+pprint(model.docvecs.most_similar(positive=["Machine learning"], topn=20))
+# Here I get more or less random results
