@@ -45,3 +45,28 @@ public:
         }
     }
 };
+
+Another approach using set as set contains only unique elements
+
+class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+        set<char>st;
+        if(sentence.length()<26)
+        {
+            return false;
+        }
+        for(auto ch: sentence)
+        {
+            st.insert(ch);
+        }
+        if(st.size()==26)
+        {
+            return true;
+        }
+        else
+        {
+         false;   
+        }
+    }
+};
