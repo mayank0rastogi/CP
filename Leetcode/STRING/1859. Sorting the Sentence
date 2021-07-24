@@ -41,6 +41,7 @@ public:
             if(s[i]>=48 &&s[i]<=57)//it means we have found a number
             {
                 // let us suppose we have found no 2 so ascii(2) i.e; 50-48 so word is stored                    in index 2
+                // cout<<s[i]-48<<endl;
                 v[s[i]-48]=store+" ";//adding space as the output we needed
                 store="";
                 i++;//for skipping the space as in the sentence after every word
@@ -55,7 +56,7 @@ public:
         {
             ans+=j;
         }
-        ans.pop_back();
+        ans.pop_back();//to remove extra space  from last because after every word there is a space so last word also contains space.
         return ans;
     }
 };
