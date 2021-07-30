@@ -21,14 +21,14 @@ class Graph:
 
 
         while queue:
-          #dequeue a vertex and simply print it 
+          #dequeue a vertex  from queue and simply print it 
             s=queue.pop(0)
             # cout<<s<<" ";
             print(s,end=" ")
-            . If a adjacent
+           
           
             for i in self.graph[s]: # Get all adjacent vertices of the
-                if visited[i]==False:  # dequeued vertex s has not been visited
+                if visited[i]==False:  # dequeued vertex s  If a adjacent has not been visited
                     queue.append(i)   # enqueue
                     visited[i]=True #mark it visited
             
