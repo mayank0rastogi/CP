@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+using namespace std;
 class Solution 
 {
     public:
@@ -42,3 +44,26 @@ class Solution
 	    // Code here
 	}
 };
+int main()
+{
+  int t;
+  cin>>t;
+  while(t--)
+  {
+   
+    int V,e;
+    cin>>V>>e;
+    vector<int>adj[V];
+    for(int i=0;i<e;i++)
+    {
+      int x,y;
+      cin>>x>>y;
+      adj[x].push_back(y);//undirected
+      adj[y].push_back(x);//undirected
+    }
+    Solution obj;
+    cout<<obj.isCyclic(V,adj)<<endl;
+  }
+    return 0;
+    
+  }
