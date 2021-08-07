@@ -62,7 +62,8 @@ public:
         unordered_map<int,int>ts;
         for(int i=0;i<nums.size();i++)
         {
-            if(ts.find(target-nums[i])!=ts.end())
+            if(ts.find(target-nums[i])!=ts.end())//check whether the target-nums[i] i.e, the remaining value does exits in the hash table or not 
+            //if it does it will never poin to the end ogf the has table 
             {
                 twos.push_back(ts[target-nums[i]]);
                 twos.push_back(i);
