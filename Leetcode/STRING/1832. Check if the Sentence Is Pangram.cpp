@@ -1,26 +1,26 @@
-A pangram is a sentence where every letter of the English alphabet appears at least once.
+// A pangram is a sentence where every letter of the English alphabet appears at least once.
 
-Given a string sentence containing only lowercase English letters, return true if sentence is a pangram, or false otherwise.
+// Given a string sentence containing only lowercase English letters, return true if sentence is a pangram, or false otherwise.
 
  
 
-Example 1:
+// Example 1:
 
-Input: sentence = "thequickbrownfoxjumpsoverthelazydog"
-Output: true
-Explanation: sentence contains at least one of every letter of the English alphabet.
-Example 2:
+// Input: sentence = "thequickbrownfoxjumpsoverthelazydog"
+// Output: true
+// Explanation: sentence contains at least one of every letter of the English alphabet.
+// Example 2:
 
-Input: sentence = "leetcode"
-Output: false
+// Input: sentence = "leetcode"
+// Output: false
  
 
-Constraints:
+// Constraints:
 
-1 <= sentence.length <= 1000
-sentence consists of lowercase English letters.
+// 1 <= sentence.length <= 1000
+// sentence consists of lowercase English letters.
 
-C++ Solution:
+// C++ Solution:
 
 class Solution {
 public:
@@ -31,7 +31,8 @@ public:
         
         for(char x:sentence)
         {
-            //as we a ascii value is 97 so v[97-97] so a counter will increase from 0 to 1 and               //soo on for all the another variable and same for repeated variables;
+            //suppose a ascii value is 97 so v[97-97] so a counter will increase from 0 to 1 and               
+            //soo on for all the another variable and same for repeated variables;
             v[x-97]++;
         }
         
@@ -46,7 +47,7 @@ public:
     }
 };
 
-Another approach using set as set contains only unique elements
+// Another approach using set as set contains only unique elements
 
 class Solution {
 public:
