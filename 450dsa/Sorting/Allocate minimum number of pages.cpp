@@ -47,7 +47,7 @@
 // 1 <= M <= 105
 
   
-  
+//approach using in this problem apply binary search algorithm
 class Solution 
 {
     public:
