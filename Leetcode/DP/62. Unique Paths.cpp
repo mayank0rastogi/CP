@@ -43,3 +43,24 @@ public:
         return dp[m-1][n-1];
     }
 };
+
+//optimized solution
+
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        int N=n+m-2;
+        int r=m-1;
+        double res=1;
+        
+        for(int i=1;i<=r;i++)
+        {
+            cout<<"value of N-r+i ->"<<N-r+i<<endl;
+            res=res*(N-r+i)/i;
+            cout<<"value of res"<<res<<endl;
+            
+        }
+        return (int)res;
+    }
+        
+    };
