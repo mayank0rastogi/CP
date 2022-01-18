@@ -48,3 +48,50 @@ public:
        return store;
     }
 };
+
+
+// Another approach :
+
+// class Solution {
+// public:
+//     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) 
+//     {
+//         set<int>s1,s2;
+//         for(int i=0;i<nums1.size();i++)
+//         {
+//             s1.insert(nums1[i]);
+//         }
+        
+//         for(int i=0;i<nums2.size();i++)
+//         {
+//             s2.insert(nums2[i]);
+//         }
+        
+        
+//         if(s1.size()<s2.size())
+//         {
+//             return find_intersection(s1,s2);
+//         }
+        
+//         else
+//         {
+//             return find_intersection(s2,s1);
+//         }
+//     }
+    
+//     vector<int> find_intersection(set<int>s1,set<int>s2)
+//     {
+//         vector<int>r;
+//         for(auto x: s1)
+//         {
+//             if(s2.find(x)!=s2.end())
+//             {
+//                 r.push_back(x);
+//             }
+//         }
+        
+//         return r;
+            
+        
+//     }
+// };
