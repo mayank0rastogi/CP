@@ -21,3 +21,24 @@ int main()
 
     return 0;
 }
+
+
+//this approach takes time ~ 30ms
+// cin>>no;
+//     int in[no],out[no];
+//     int total=0,minpossible=0;
+//     for(int i=0;i<no;i++)
+//     {
+//         cin>>out[i]>>in[i];
+//     }
+    
+//     for(int i=0;i<no;i++)
+//     {
+//         total+=in[i]-out[i];
+        
+//         if(minpossible<total)
+//         {
+//             minpossible=total;
+//         }
+//     }
+//     cout<<minpossible<<endl;
