@@ -10,11 +10,11 @@ space is a separator. Generally, users use a split() method to split a Python st
 ```
 Syntax :
 input().split(separator, maxsplit)
-
+```
 separator: This is a delimiter. The string splits at this specified separator. If is not provided then any white space is a separator.
 maxsplit: It is a number, which tells us to split the string into a maximum of provided number of times.
 If it is not provided then the default is -1 which means there is no limit.
-```
+
 ```
 a) Taking two inputs at a time:
 a,b = input("Enter 2 variables").split()
@@ -42,8 +42,8 @@ how are you
 ```
 
 Note: Whether or not maxsplit was defined, the results were the same. For both the above cases only 3 inputs (not more or less can be provided corresponding to defined variables!)
-```
-Taking Unlimited Inputs:
+
+```Taking Unlimited Inputs:
 x= input("Enter variables: ").split(",")
 print(x)
 Enter variables: how,are,you,dear
