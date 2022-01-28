@@ -29,7 +29,8 @@ print("b is:",b)
 ```
 
 Note: As you can see, the input given can be any: int, string, float, etc. We haven’t mentioned the separator used hence whitespace is considered as default.
-``
+
+```
 b) Taking Inputs with Separator and Maxsplit defined
 x,y,z = input("Enter variables: ").split(",",3)
 print(x,y,z)
@@ -50,7 +51,8 @@ Enter variables: how,are,you,dear
 ['how', 'are', 'you', 'dear']
 ```
 
-```c) Taking Multiple Inputs As List
+```
+c) Taking Multiple Inputs As List
 Taking multiple inputs at a time and type casting using list() function.
 With Map Function:
 Used Map Function (Optional) to convert thy input into an integer.
