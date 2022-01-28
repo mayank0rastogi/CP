@@ -49,8 +49,8 @@ print(x)
 Enter variables: how,are,you,dear
 ['how', 'are', 'you', 'dear']
 ```
-```
-c) Taking Multiple Inputs As List
+
+```c) Taking Multiple Inputs As List
 Taking multiple inputs at a time and type casting using list() function.
 With Map Function:
 Used Map Function (Optional) to convert thy input into an integer.
