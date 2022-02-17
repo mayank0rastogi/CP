@@ -1,4 +1,5 @@
 arr=[3, 34, 4, 12, 5, 2]
+# test case 2 : 1, 5, 3, 7, 4 , s= 12
 s=9
 n=len(arr)
 dp=[[False for i in range(s+1)] for j in range(n+1)]
@@ -21,8 +22,8 @@ def subset_sum(arr,s,n):
     
     
     #here weight array replaced wth arr and weight 'W' is replaced with s
-    for i in range(n+1):
-        for j in range(s+1):
+    for i in range(1,n+1):
+        for j in range(1,s+1):
             # if i==0:
             #     dp[i][j]=False
             # if j==0:
@@ -34,13 +35,14 @@ def subset_sum(arr,s,n):
                 dp[i][j]=dp[i-1][j]
                 
     #to see complete matrix             
-    # for i in range(n + 1):
-    #     for j in range(s+ 1):
-    #         print (dp[i][j], end =" ")
-    #     print()
-    return dp[i][j]
+    for i in range(n + 1):
+        for j in range(s+ 1):
+            print (dp[i][j], end =" ")
+        print()
+    return dp[n][s]
 
 
 print(subset_sum(arr,s,n)==True,"found subset sum")
+
 
 
