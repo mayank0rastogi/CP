@@ -55,3 +55,7 @@ int main()
     cout<<count_subset_sum(arr,s,n,dp)<<endl;
     return 0;
 }
+
+
+// As in subset sum problem we have false  or true But , for  this problem our True becomes there is subset so count>=1 
+//     whereas for false it means ther is no subset present so count is simply 0
