@@ -15,6 +15,10 @@ bool subset_sum(int s,int arr[],int n)
 //      excluding the last element   
     if (arr[n-1]<=s)
     {
+        //*impor
+                 // this condition in or statement states that we can include -> subset_sum(s-arr[n-1],arr,n-1)
+                 // this condition in or statement states that we can exclude it ->  subset_sum(s,arr,n-1)
+        //*tant
         return (subset_sum(s-arr[n-1],arr,n-1) || subset_sum(s,arr,n-1));
     }
     else // If last element is greater than sum,then ignore it
