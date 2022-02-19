@@ -47,15 +47,17 @@ int count_the_no_of_subset_with_a_given_difference(int arr[],int n,int diff)
     
     int sum_s1=(sum+diff)/2;
     
-    vector<vector<int>> dp(n+1,vector<int>(sum+1,0));
+    vector<vector<int>> dp(n+1,vector<int>(sum_s1+1,0));
     
     return count_subset_sum(arr,sum_s1,n,dp);
     
 }
 int main()
 {
+    // int arr[]={1,1,1,1,1};
     int arr[]={1,1,2,3};
     int n=sizeof(arr)/sizeof(arr[0]);
+    // int diff=3;
     int diff=1;
     cout<<count_the_no_of_subset_with_a_given_difference(arr,n,diff);
     return 0;
