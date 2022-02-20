@@ -20,7 +20,10 @@ int rod_cutting(int price[],int n,int N,int len[],vector<vector<int>>dp)
     
     if(len[n-1]<=N)
     {
-        dp[n][N]=max(price[n-1]+rod_cutting(price,n-1,N-len[n-1],len,dp),rod_cutting(price,n-1,N,len,dp));
+        // *note here the price of rod + including other piece by calling rod_cutting function we pass "n"
+        //instead of "n-1" because he again see the best possible case to condier
+        // which also shows multiple occurence
+        dp[n][N]=max(price[n-1]+rod_cutting(price,n,N-len[n-1],len,dp),rod_cutting(price,n-1,N,len,dp));
         return dp[n][N];
     }
     
