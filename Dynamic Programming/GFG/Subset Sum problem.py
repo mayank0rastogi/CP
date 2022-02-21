@@ -37,41 +37,41 @@ Not Running
 
 
 #Running code
-# n = 5
-# a = [1, 5, 3, 7, 4]
-# sum = 21
+n = 5
+a = [1, 5, 3, 7, 4]
+sum = 21
 
-# dp = [[-1 for i in range(101)] for j in range(101)]
+dp = [[-1 for i in range(101)] for j in range(101)]
 
 
-# def subsetSum(a, n, sum):
+def subsetSum(a, n, sum):
 
-# 	if (sum == 0):
-# 		return 1
+	if (sum == 0):
+		return 1
 	
-# 	if (n <= 0):
-# 		return 0
+	if (n <= 0):
+		return 0
 		
 
-# 	if (dp[n][sum] != -1):
-# 		return dp[n][sum]
+	if (dp[n][sum] != -1):
+		return dp[n][sum]
 
-# 	if (a[n - 1] > sum):
-# 		dp[n][sum] = subsetSum(a, n - 1, sum)
-# 		return dp[n][sum]
-# 	else:
+	if (a[n - 1] > sum):
+		dp[n][sum] = subsetSum(a, n - 1, sum)
+		return dp[n][sum]
+	else:
 		
 
-# 		dp[n][sum] = subsetSum(a, n - 1, sum) or subsetSum(a, n - 1, sum - a[n - 1])
-# 		return dp[n][sum] 
+		dp[n][sum] = subsetSum(a, n - 1, sum) or subsetSum(a, n - 1, sum - a[n - 1])
+		return dp[n][sum] 
 
 
 
 
-# if (subsetSum(a, n, sum)):
-#     print("YES")
-# else:
-# 	print("NO")
+if (subsetSum(a, n, sum)):
+    print("YES")
+else:
+	print("NO")
 
     
 # for i in range(n+1):
