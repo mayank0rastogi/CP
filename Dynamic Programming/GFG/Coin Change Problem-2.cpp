@@ -25,6 +25,8 @@ int min_coin_needed(int coin[],int n,int sum,vector<vector<int>>dp)
             //why initialize it to sum maximum value
             if(i==0)
             {
+                // we are storing INT_MAX-1 bcoz we know that INT_MAX+1 is -ve value that's why I have -1 in INT_MAX as below i have do +1 so that value become 
+                //INT_MAX not become -ve 
                 dp[i][j]=INT_MAX-1;
             }
             // this case is changed in this problem as minimum no of coins needed to make sum 0 is 0 that why initialize all to zeo
