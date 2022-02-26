@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int LCS(string s1,string s2,int m,int n)
+int LCS(string s1,string s2,int n,int m)
 {
     
     
@@ -38,7 +38,7 @@ int main()
     int n=s1.size();
     string s2="GXTXAYB";
     int m=s2.size();
-    cout<<LCS(s1,s2,m,n)<<endl;
+    cout<<LCS(s1,s2,n,m)<<endl;
 
     return 0;
 }
