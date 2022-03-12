@@ -11,10 +11,10 @@
  */
 class Solution 
 {
-    private:
-    int res;
+//     private:
+//     int res;
 public:
-    int Solve(TreeNode* root) 
+    int Solve(TreeNode* root,int &res) 
     {
         if (root == NULL)
         {
@@ -33,7 +33,7 @@ public:
     {
         
         res = INT_MIN;
-        Solve(root);
+        Solve(root,res);
         return res;
         
        
