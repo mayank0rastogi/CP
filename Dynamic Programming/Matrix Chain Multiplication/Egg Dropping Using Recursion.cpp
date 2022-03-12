@@ -35,6 +35,10 @@ int egg_dropping(int e,int f)
     int mn=INT_MAX;
     for(int k=1;k<=f;k++)
     {
+        //// once egg break means decrement both floor and egg 
+        //// and when egg did not break means check egg dropping from above floor
+        //  max denotes worst case we look for worst case where maximum attempt taken place we have to choose this one by  using max
+        // one function call for when egg break and another condition for when does'nt broke
         int tmp=1+max(egg_dropping(e-1,k-1),egg_dropping(e,f-k));
         mn=min(tmp,mn);
     }
