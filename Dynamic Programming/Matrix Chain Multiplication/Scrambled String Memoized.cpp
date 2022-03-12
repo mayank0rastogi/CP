@@ -31,6 +31,7 @@ bool solve(string x,string y)
     
     for(int i=1;i<=n-1;i++)
     {
+        //// these are two condition for swapping and not swapping the string 
         
         if((solve(x.substr(0,i),y.substr(n-i,i)) && solve(x.substr(i,n-i),y.substr(0,n-i))) || (solve(x.substr(0,i),y.substr(0,i)) && solve(x.substr(i,n-i),y.substr(i,n-i))))
         {
