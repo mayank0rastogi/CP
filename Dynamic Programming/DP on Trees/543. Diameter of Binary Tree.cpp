@@ -33,7 +33,6 @@ public:
         {
             return 0;
         }
-        
         int res=INT_MIN;
         solve(root,res);
         return res;
