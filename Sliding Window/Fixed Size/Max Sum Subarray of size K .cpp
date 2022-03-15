@@ -1,8 +1,7 @@
-// { Driver Code Starts
+
 #include<bits/stdc++.h> 
 using namespace std; 
 
- // } Driver Code Ends
 class Solution{   
 public:
     int maximumSumSubarray(int K, vector<int> &Arr , int N)
@@ -32,7 +31,6 @@ public:
     
 };
 
-// { Driver Code Starts.
 int main() 
 { 
     int t;
@@ -51,4 +49,4 @@ int main()
         cout << ob.maximumSumSubarray(K,Arr,N) << endl;
     }
     return 0; 
-}   // } Driver Code Ends
+}  
