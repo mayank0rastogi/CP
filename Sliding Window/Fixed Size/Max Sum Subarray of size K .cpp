@@ -1,6 +1,8 @@
+// { Driver Code Starts
 #include<bits/stdc++.h> 
 using namespace std; 
 
+ // } Driver Code Ends
 class Solution{   
 public:
     int maximumSumSubarray(int K, vector<int> &Arr , int N)
@@ -8,16 +10,17 @@ public:
           int i=0,j=0;
           int sum=0;
           int mx=INT_MIN;
+          //runn until end pointer that is j is less than size of arr
           while (j<N)
           {
-            sum=sum+Arr[j]; // do calculation to reduse time complexity
+            sum=sum+Arr[j]; // do calculation to reduce time complexity
             if (j-i+1<K) 
             {
-                j++; // increament j upto when the size of the size of window is not equal to required size
+                j++; // increament j upto when the size of the size of window is not equal to required size i.e K
             }
             else if ((j-i+1)==K) // when sindow size hit to the required window size 
             {
-              mx=max(mx,sum); // selecting ans from the candidates
+              mx=max(mx,sum); // selecting max ans from the subarray sum
               sum=sum-Arr[i]; // start removing from the first
               i++;
               j++;
@@ -29,7 +32,7 @@ public:
     
 };
 
-
+// { Driver Code Starts.
 int main() 
 { 
     int t;
@@ -48,4 +51,4 @@ int main()
         cout << ob.maximumSumSubarray(K,Arr,N) << endl;
     }
     return 0; 
-} 
+}   // } Driver Code Ends
