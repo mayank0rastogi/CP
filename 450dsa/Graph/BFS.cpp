@@ -9,7 +9,7 @@ class Solution
 	    // Code here
 	    vector<int>v;
 	    queue<int>qu;
-	    //pushing source node
+	    //pushing source node into queue
 	    qu.push(0);
 	    
 	    vector<int> vis(V,0);
