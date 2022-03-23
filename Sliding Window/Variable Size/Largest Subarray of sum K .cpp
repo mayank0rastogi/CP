@@ -58,3 +58,42 @@ int main() {
 	
 	return 0;
 } 
+
+//For positive nos only
+
+// class Solution{
+//     public:
+//     int lenOfLongSubarr(int A[],  int N, int K) 
+//     { 
+//        int sum=0;
+      
+//       int i=0,j=0;
+//       int mx=0;
+//     while(j<N)
+//     {
+//        sum=sum+A[j];
+        
+//         if(sum<K)
+//         {
+//             j++;
+//         }
+        
+//         if(sum==K)
+//         {
+//             mx=max(mx,j-i+1);//j-i+1 the window size of the candidate which hits the the size of K
+//             j++;
+//         }
+//         else if(sum>K)
+//         {
+//             while(sum>K)
+//             {
+//                 sum=sum-A[i];
+//                 i++;
+                
+                
+//             }
+//             j++;
+//         }
+//     }
+//   return mx;
+// } 
