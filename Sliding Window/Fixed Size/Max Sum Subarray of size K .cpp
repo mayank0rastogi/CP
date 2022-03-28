@@ -2,7 +2,8 @@
 #include<bits/stdc++.h> 
 using namespace std; 
 
-class Solution{   
+class Solution
+{   
 public:
     int maximumSumSubarray(int K, vector<int> &Arr , int N)
     {
