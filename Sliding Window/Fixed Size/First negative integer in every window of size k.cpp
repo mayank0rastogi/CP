@@ -9,7 +9,8 @@ int main()
 {
     long long int t, i;
     cin >> t;
-    while (t--) {
+    while (t--) 
+    {
         long long int n;
         cin >> n;
         long long int arr[n];
