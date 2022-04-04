@@ -12,6 +12,7 @@ for _ in range(int(input())):
         else:
             draw+=1
     Carlsen=2*(Carlsen+draw)
+    
     Chef=2*(Chef+draw)
     if Carlsen>Chef:
         print(60*x)
